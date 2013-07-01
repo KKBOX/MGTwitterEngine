@@ -7,7 +7,6 @@
 //
 
 #import "MGTwitterTouchJSONParser.h"
-#import "CJSONDeserializer.h"
 
 @implementation MGTwitterTouchJSONParser
 
@@ -82,13 +81,13 @@ connectionIdentifier:(NSString *)theIdentifier
 		}
 		else
 		{
-			id results = [[CJSONDeserializer deserializer] deserialize:json
-																 error:nil];
-			if([results isKindOfClass:[NSArray class]]){
-				for(NSDictionary *result in results){
+			id results = [NSJSONSerialization JSONObjectWithData:json options:0 error:nil];
+			if ([results isKindOfClass:[NSArray class]]) {
+				for(NSDictionary *result in results) {
 					[self _parsedObject:result];
 				}
-			}else{
+			}
+			else {
 				[self _parsedObject:results];
 			}
 			

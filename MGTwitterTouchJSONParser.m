@@ -43,7 +43,7 @@ connectionIdentifier:(NSString *)theIdentifier
 		responseType = respType;
 		URL = [theURL retain];
 		deliveryOptions = theDeliveryOptions;
-		delegate = theDelegate;
+		delegate = (NSObject <MGTwitterParserDelegate> *)theDelegate;
 		
 		if (deliveryOptions & MGTwitterEngineDeliveryAllResultsOption)
 		{

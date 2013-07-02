@@ -665,10 +665,12 @@
 	}
 #endif
 	switch (responseType) {
-		case MGTwitterOAuthToken:;
+		case MGTwitterOAuthToken:
+		{
 			OAToken *token = [[[OAToken alloc] initWithHTTPResponseBody:[[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] autorelease]] autorelease];
-			[self parsingSucceededForRequest:identifier ofResponseType:requestType
+			[self parsingSucceededForRequest:identifier ofResponseType:MGTwitterOAuthToken
 						   withParsedObjects:[NSArray arrayWithObject:token]];
+		}
 			break;
 		default:
 			[MGTwitterTouchJSONParser parserWithJSON:jsonData delegate:self

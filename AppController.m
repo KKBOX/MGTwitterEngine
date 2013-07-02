@@ -117,13 +117,11 @@
 	//NSLog(@"getFriendIDsFor: connectionIdentifier = %@", [twitterEngine getFriendIDsFor:TESTING_SECONDARY_USER startingFromCursor:-1]);
 	//NSLog(@"getFollowerIDsFor: connectionIdentifier = %@", [twitterEngine getFollowerIDsFor:TESTING_SECONDARY_USER startingFromCursor:-1]);
 
-#if YAJL_AVAILABLE || TOUCHJSON_AVAILABLE
 	// Search method
 	//NSLog(@"getSearchResultsForQuery: connectionIdentifier = %@", [twitterEngine getSearchResultsForQuery:TESTING_PRIMARY_USER sinceID:0 startingAtPage:1 count:20]);
 	
 	// Trends method
 	//NSLog(@"getTrends: connectionIdentifier = %@", [twitterEngine getTrends]);
-#endif
 }
 
 - (void)dealloc
@@ -218,13 +216,9 @@
 	[self runTests];
 }
 
-#if YAJL_AVAILABLE || TOUCHJSON_AVAILABLE
-
 - (void)receivedObject:(NSDictionary *)dictionary forRequest:(NSString *)connectionIdentifier
 {
     NSLog(@"Got an object for %@: %@", connectionIdentifier, dictionary);
 }
-
-#endif
 
 @end

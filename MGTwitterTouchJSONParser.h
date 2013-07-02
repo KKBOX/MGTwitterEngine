@@ -11,30 +11,32 @@
 #import "MGTwitterParserDelegate.h"
 #import "MGTwitterEngineDelegate.h"
 
-@interface MGTwitterTouchJSONParser : NSObject {
-	__weak NSObject <MGTwitterParserDelegate> *delegate; // weak ref
-	NSString *identifier;
-	MGTwitterRequestType requestType;
-	MGTwitterResponseType responseType;
-	NSURL *URL;
-	NSData *json;
-	NSMutableArray *parsedObjects;
-	MGTwitterEngineDeliveryOptions deliveryOptions;
+@interface MGTwitterTouchJSONParser : NSObject
+{
+    __weak NSObject <MGTwitterParserDelegate> *delegate; // weak ref
+    NSString *identifier;
+    MGTwitterRequestType requestType;
+    MGTwitterResponseType responseType;
+    NSURL *URL;
+    NSData *json;
+    NSMutableArray *parsedObjects;
+    MGTwitterEngineDeliveryOptions deliveryOptions;
 }
 
 + (id)parserWithJSON:(NSData *)theJSON
-			delegate:(NSObject *)theDelegate
+            delegate:(NSObject *)theDelegate
 connectionIdentifier:(NSString *)identifier
-		 requestType:(MGTwitterRequestType)reqType
-		responseType:(MGTwitterResponseType)respType
-				 URL:(NSURL *)URL
-	 deliveryOptions:(MGTwitterEngineDeliveryOptions)deliveryOptions;
+         requestType:(MGTwitterRequestType)reqType
+        responseType:(MGTwitterResponseType)respType
+                 URL:(NSURL *)URL
+     deliveryOptions:(MGTwitterEngineDeliveryOptions)deliveryOptions;
+
 - (id)initWithJSON:(NSData *)theJSON
-		  delegate:(NSObject *)theDelegate 
+          delegate:(NSObject *)theDelegate
 connectionIdentifier:(NSString *)identifier
-	   requestType:(MGTwitterRequestType)reqType 
-	  responseType:(MGTwitterResponseType)respType
-			   URL:(NSURL *)URL
+       requestType:(MGTwitterRequestType)reqType
+      responseType:(MGTwitterResponseType)respType
+               URL:(NSURL *)URL
    deliveryOptions:(MGTwitterEngineDeliveryOptions)deliveryOptions;
 
 // delegate callbacks

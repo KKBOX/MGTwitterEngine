@@ -1,0 +1,4 @@
+*.xcworkspace
+*.swp
+xcuserdata
+.DS_Store

@@ -22,23 +22,19 @@
     NSString *_clientVersion;
     NSString *_clientURL;
     NSString *_clientSourceToken;
-	NSString *_APIDomain;
-#if YAJL_AVAILABLE || TOUCHJSON_AVAILABLE
-	NSString *_searchDomain;
-#endif
+    NSString *_APIDomain;
+    NSString *_searchDomain;
     BOOL _secureConnection;
-	BOOL _clearsCookies;
-#if YAJL_AVAILABLE || TOUCHJSON_AVAILABLE
-	MGTwitterEngineDeliveryOptions _deliveryOptions;
-#endif
-	
-	// OAuth
-	NSString *_consumerKey;
-	NSString *_consumerSecret;
-	OAToken  *_accessToken;
-	
-	// basic auth - deprecated
-	NSString *_username;
+    BOOL _clearsCookies;
+    MGTwitterEngineDeliveryOptions _deliveryOptions;
+
+    // OAuth
+    NSString *_consumerKey;
+    NSString *_consumerSecret;
+    OAToken  *_accessToken;
+
+    // basic auth - deprecated
+    NSString *_username;
     NSString *_password;
 }
 
@@ -57,18 +53,14 @@
 - (void)setClientName:(NSString *)name version:(NSString *)version URL:(NSString *)url token:(NSString *)token;
 - (NSString *)APIDomain;
 - (void)setAPIDomain:(NSString *)domain;
-#if YAJL_AVAILABLE || TOUCHJSON_AVAILABLE
 - (NSString *)searchDomain;
 - (void)setSearchDomain:(NSString *)domain;
-#endif
 - (BOOL)usesSecureConnection; // YES = uses HTTPS, default is YES
 - (void)setUsesSecureConnection:(BOOL)flag;
 - (BOOL)clearsCookies; // YES = deletes twitter.com cookies when setting username/password, default is NO (see README.txt)
 - (void)setClearsCookies:(BOOL)flag;
-#if YAJL_AVAILABLE || TOUCHJSON_AVAILABLE
 - (MGTwitterEngineDeliveryOptions)deliveryOptions;
 - (void)setDeliveryOptions:(MGTwitterEngineDeliveryOptions)deliveryOptions;
-#endif
 
 // Connection methods
 - (NSUInteger)numberOfConnections;
@@ -132,23 +124,23 @@
 
 - (NSString *)getUserInformationForEmail:(NSString *)email; // users/show
 
-//	List Methods
+//  List Methods
 
-//	List the lists of the specified user. Private lists will be included if the 
-//	authenticated users is the same as the user who's lists are being returned.
+//  List the lists of the specified user. Private lists will be included if the
+//  authenticated users is the same as the user who's lists are being returned.
 - (NSString *)getListsForUser:(NSString *)username;
 
-//	Creates a new list for the authenticated user. Accounts are limited to 20 lists.
-//	Options include:
-//	mode - Whether your list is public or private. Values can be public or private. 
-//		If no mode is specified the list will be public.
-//	description - The description to give the list.
+//  Creates a new list for the authenticated user. Accounts are limited to 20 lists.
+//  Options include:
+//  mode - Whether your list is public or private. Values can be public or private.
+//      If no mode is specified the list will be public.
+//  description - The description to give the list.
 - (NSString *)createListForUser:(NSString *)username withName:(NSString *)listName withOptions:(NSDictionary *)options;
 
-//	update an existing list
+//  update an existing list
 - (NSString *)updateListForUser:(NSString *)username withID:(MGTwitterEngineID)listID withOptions:(NSDictionary *)options;
 
-//	Show the specified list. Private lists will only be shown if the authenticated user owns the specified list.
+//  Show the specified list. Private lists will only be shown if the authenticated user owns the specified list.
 - (NSString *)getListForUser:(NSString *)username withID:(MGTwitterEngineID)listID;
 
 // Direct Message methods
@@ -229,8 +221,6 @@
 // All methods below return a unique connection identifier.
 // ======================================================================================================
 
-#if YAJL_AVAILABLE || TOUCHJSON_AVAILABLE
-
 // Search method
 
 - (NSString *)getSearchResultsForQuery:(NSString *)query;
@@ -240,8 +230,6 @@
 // Trends method
 
 - (NSString *)getCurrentTrends; // current trends
-
-#endif
 
 @end
 
@@ -266,9 +254,7 @@
 
 // XAuth login - NOTE: You MUST email Twitter with your application's OAuth key/secret to
 // get OAuth access. This will not work if you don't do this.
-- (NSString *)getXAuthAccessTokenForUsername:(NSString *)username 
-									password:(NSString *)password;
+- (NSString *)getXAuthAccessTokenForUsername:(NSString *)username
+                                    password:(NSString *)password;
 
 @end
-
-

@@ -43,9 +43,7 @@ typedef enum _MGTwitterEngineDeliveryOptions {
 - (void)userInfoReceived:(NSArray *)userInfo forRequest:(NSString *)connectionIdentifier;
 - (void)userListsReceived:(NSArray *)userInfo forRequest:(NSString *)connectionIdentifier;
 - (void)miscInfoReceived:(NSArray *)miscInfo forRequest:(NSString *)connectionIdentifier;
-#if YAJL_AVAILABLE || TOUCHJSON_AVAILABLE
 - (void)searchResultsReceived:(NSArray *)searchResults forRequest:(NSString *)connectionIdentifier;
-#endif
 - (void)socialGraphInfoReceived:(NSArray *)socialGraphInfo forRequest:(NSString *)connectionIdentifier;
 - (void)accessTokenReceived:(OAToken *)token forRequest:(NSString *)connectionIdentifier;
 
